@@ -1,0 +1,342 @@
+/* ==========================================================================
+   1. RESET CSS MẶC ĐỊNH & THIẾT LẬP CHUNG
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+}
+
+/* ==========================================================================
+   2. THANH MENU ĐIỀU HƯỚNG (NAVBAR) - DÙNG CHUNG CẢ 5 TRANG
+   ========================================================================== */
+/* ==========================================================================
+   2. THANH MENU ĐIỀU HƯỚNG (NAVBAR) - ĐÃ SỬA LỖI TRÀN HÀNG
+   ========================================================================== */
+.navbar {
+    background-color: #e65c2b; 
+    /* Thay vì cố định height: 80px, ta để min-height để nếu chữ có rớt hàng thì nền cam vẫn ôm hết */
+    min-height: 80px; 
+    padding: 0 40px;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    overflow: hidden; /* Giúp bao bọc toàn bộ các phần tử float bên trong */
+}
+
+.logo {
+    float: left;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 80px; 
+}
+
+.nav-links {
+    float: right;
+    list-style: none;
+    /* Thay vì margin-top cố định, dùng padding để căn giữa menu chữ tốt hơn khi co giãn */
+    padding: 28px 0; 
+}
+
+.nav-links li {
+    display: inline-block;
+    margin-left: 15px; /* Giảm khoảng cách giữa các mục một chút để tiết kiệm không gian */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 8px;
+    white-space: nowrap; /* Ngăn không cho chữ bên trong 1 mục bị bẻ đôi thành 2 dòng */
+    transition: color 0.2s;
+}
+
+/* Class active để đánh dấu trang hiện tại đang mở */
+.nav-links a.active, .nav-links a:hover {
+    color: #fce1d4; 
+    border-bottom: 2px solid #ffffff; /* Gạch chân nhẹ dưới chữ khi chọn */
+}
+
+/* Khối bù trừ khoảng trống do thanh menu bị cố định (fixed) */
+.main-content {
+    margin-top: 80px; 
+}
+
+/* ==========================================================================
+   3. CÁC THÀNH PHẦN TRANG TRÍ CHUNG
+   ========================================================================== */
+.hero-gap {
+    background-color: #fdf8f2; /* Màu kem nhạt dịu mắt tôn đồ ăn */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 20px 60px 20px;
+}
+
+.section-title {
+    font-size: 32px;
+    color: #222222;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.underline {
+    width: 60px;
+    height: 4px;
+    background-color: #e65c2b;
+    margin: 0 auto 40px auto;
+    border-radius: 2px;
+}
+
+/* ==========================================================================
+   4. CSS TRANG CHỦ (INDEX.HTML - DANH MỤC MÓN)
+   ========================================================================== */
+.category-card {
+    display: inline-block;
+    width: 230px;
+    height: 160px;
+    background-color: #fdf8f2;
+    margin: 15px;
+    border-radius: 15px;
+    padding: 25px;
+    vertical-align: top;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+    object-fit: contain;
+}
+
+.category-card h3 {
+    font-size: 16px;
+    color: #222222;
+}
+
+/* ==========================================================================
+   5. CSS TRANG THỰC ĐƠN (THUC-DON.HTML - MÓN ĂN & GIÁ CHI TIẾT)
+   ========================================================================== */
+.food-card {
+    display: inline-block;
+    width: 240px;
+    background-color: #ffffff;
+    border: 1px solid #f0f0f0;
+    margin: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: left;
+    vertical-align: top;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.food-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    background-color: #eee;
+}
+
+.food-info {
+    padding: 15px;
+}
+
+.food-info h3 {
+    font-size: 16px;
+    color: #222222;
+    margin-bottom: 8px;
+}
+
+.food-info p {
+    font-size: 13px;
+    color: #777777;
+    height: 36px;
+    overflow: hidden;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.food-footer {
+    overflow: hidden;
+}
+
+.food-price {
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    color: #e65c2b;
+    margin-top: 5px;
+}
+
+.btn-order {
+    float: right;
+    background-color: #e65c2b;
+    color: #ffffff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-order:hover {
+    background-color: #cb4e22;
+}
+
+/* ==========================================================================
+   6. CSS TRANG KHUYẾN MÃI (KHUYEN-MAI.HTML - VOUCHER GẠCH ĐỨT)
+   ========================================================================== */
+.promo-card {
+    display: inline-block;
+    width: 45%;
+    min-width: 300px;
+    background-color: #ffffff;
+    border: 2px dashed #e65c2b; /* Tạo nét đứt viền cuống vé voucher */
+    margin: 15px;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.promo-tag {
+    background-color: #ff4757;
+    color: white;
+    padding: 3px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.promo-card h3 {
+    color: #222;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.promo-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.promo-code {
+    background-color: #f1f2f6;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-family: monospace;
+    font-weight: bold;
+    color: #e65c2b;
+}
+
+/* ==========================================================================
+   7. CSS TRANG LAB THỰC HÀNH (LAB.HTML - BẢNG ĐIỂM DANH)
+   ========================================================================== */
+.lab-table {
+    width: 100%;
+    max-width: 850px;
+    margin: 20px auto;
+    border-collapse: collapse; /* Gom sát viền bảng thành 1 nét đơn */
+    text-align: left;
+}
+
+.lab-table th, .lab-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.lab-table th {
+    background-color: #e65c2b;
+    color: white;
+}
+
+.lab-table tr:hover {
+    background-color: #fdf8f2;
+}
+
+.btn-view {
+    background-color: #2ed573;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   8. CSS TRANG LIÊN HỆ (LIEN-HE.HTML - THÔNG TIN CHI NHÁNH)
+   ========================================================================== */
+.contact-wrapper {
+    overflow: hidden;
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    float: left;
+    width: 45%;
+}
+
+.contact-info h3 {
+    color: #e65c2b;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    font-size: 15px;
+    line-height: 2;
+    color: #444444;
+}
+
+.contact-map {
+    float: right;
+    width: 50%;
+    background-color: #f1f2f6;
+    height: 250px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 250px;
+    color: #777777;
+    border: 1px solid #e0e0e0;
+}
+
+/* ==========================================================================
+   9. CHÂN TRANG (FOOTER) - DÙNG CHUNG CẢ 5 TRANG
+   ========================================================================== */
+footer {
+    background-color: #222222;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    clear: both; /* Ngăn chặn hiện tượng float đè lấn dòng */
+}
