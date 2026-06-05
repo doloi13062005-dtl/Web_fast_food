@@ -259,28 +259,46 @@ body {
 /* ==========================================================================
    7. CSS TRANG LAB THỰC HÀNH (LAB.HTML - BẢNG ĐIỂM DANH)
    ========================================================================== */
-.lab-table {
+/* Container bao quanh tất cả các bài Lab */
+.lab-container {
     width: 100%;
     max-width: 850px;
     margin: 20px auto;
-    border-collapse: collapse; /* Gom sát viền bảng thành 1 nét đơn */
-    text-align: left;
 }
 
-.lab-table th, .lab-table td {
+/* Định dạng từng dòng (tương ứng với 1 hàng trong bảng) */
+.lab-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 12px 15px;
     border-bottom: 1px solid #dddddd;
+    background-color: white;
 }
 
-.lab-table th {
-    background-color: #e65c2b;
-    color: white;
-}
-
-.lab-table tr:hover {
+/* Hiệu ứng khi di chuột vào dòng */
+.lab-item:hover {
     background-color: #fdf8f2;
 }
 
+/* Phần tiêu đề của khối (Thay thế cho <th>) */
+.lab-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 15px;
+    background-color: #e65c2b;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+}
+
+/* Căn chỉnh các cột nội dung */
+.col-stt { width: 5%; }
+.col-ten { width: 25%; }
+.col-noidung { width: 50%; }
+.col-trangthai { width: 20%; text-align: center; }
+
+/* Nút bấm */
 .btn-view {
     background-color: #2ed573;
     color: white;
@@ -289,7 +307,10 @@ body {
     border-radius: 4px;
     font-size: 13px;
     font-weight: bold;
+    margin: 2px;
+    display: inline-block;
 }
+ 
 
 /* ==========================================================================
    8. CSS TRANG LIÊN HỆ (LIEN-HE.HTML - THÔNG TIN CHI NHÁNH)
